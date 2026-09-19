@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Outfit & Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts Outfit, Plus Jakarta Sans & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,900;1,600&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -27,7 +27,8 @@
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif']
+                        display: ['Outfit', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif']
                     }
                 }
             }
@@ -54,9 +55,50 @@
             transform: translateY(-4px);
             border-color: rgba(245, 158, 11, 0.5);
         }
+
+        /* Estilos específicos para el Footer de Zero Systems */
+        footer {
+            margin-top: auto;
+            padding: 2rem 1rem 1rem 1rem;
+            border-top: 1px solid rgba(41, 37, 36, 0.8);
+            background-color: #0c0a09;
+        }
+
+        .footer-credits {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer-credits span {
+            font-size: 0.75rem;
+            text-transform: lowercase;
+            letter-spacing: 0.1em;
+            color: #737373;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .zero-systems-logo {
+            display: inline-block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .zero-systems-logo:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .zero-systems-svg {
+            width: 180px;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col bg-neutral-950 text-neutral-100 font-sans pb-12">
+<body class="min-h-screen flex flex-col bg-neutral-950 text-neutral-100 font-sans">
 
     <!-- Hero Header Integrado con Perfil -->
     <header class="relative overflow-hidden bg-gradient-to-b from-stone-900 via-neutral-950 to-neutral-950 pt-8 pb-6 px-4 border-b border-stone-800/80">
@@ -205,6 +247,26 @@
             </div>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-credits">
+            <span>created by</span>
+            <a href="https://j05ulr.github.io/ZeroSystems/" target="_blank" rel="noopener noreferrer" class="zero-systems-logo">
+                <svg class="zero-systems-svg" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Iso/Icono Zero Systems -->
+                    <g fill="#FFFFFF">
+                        <path d="M20,65 L110,65 C125,65 130,58 135,48 L142,32 C145,25 140,20 128,20 L40,20 C25,20 20,27 15,37 L8,52 C5,59 10,65 20,65 Z" />
+                        <path d="M50,95 L140,95 C155,95 160,88 165,78 L172,62 C175,55 170,50 158,50 L70,50 C55,50 50,57 45,67 L38,82 C35,89 40,95 50,95 Z" />
+                        <path d="M140,15 L52,105" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+                    </g>
+                    <!-- Texto Marca -->
+                    <text x="180" y="62" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="40" fill="#FFFFFF" letter-spacing="3">ZERO SYSTEMS</text>
+                    <text x="183" y="94" font-family="'Montserrat', sans-serif" font-weight="600" font-style="italic" font-size="22" fill="#E0E0E0" letter-spacing="8">CERO LÍMITES</text>
+                </svg>
+            </a>
+        </div>
+    </footer>
 
     <script>
         const catalogData = [
