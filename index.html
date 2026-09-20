@@ -147,19 +147,15 @@
             </div>
 
             <!-- Contact Grid Compacto -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full max-w-lg mt-6 pt-6 border-t border-stone-800/60 text-xs">
-                <a href="tel:+525515901980" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/40 transition text-stone-300">
+            <div class="grid grid-cols-2 gap-3 w-full max-w-md mt-6 pt-6 border-t border-stone-800/60 text-xs">
+                <a href="tel:+525515901980" class="flex items-center justify-center gap-2.5 p-2.5 rounded-xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/40 transition text-stone-300">
                     <div class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center"><i class="fa-solid fa-phone text-xs"></i></div>
                     <span class="truncate font-semibold">+52 55 1590 1980</span>
                 </a>
-                <a href="mailto:abel@titanmeats.com" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-stone-900/50 border border-stone-800 hover:border-red-500/40 transition text-stone-300">
+                <a href="mailto:abel@titanmeats.com" class="flex items-center justify-center gap-2.5 p-2.5 rounded-xl bg-stone-900/50 border border-stone-800 hover:border-red-500/40 transition text-stone-300">
                     <div class="w-7 h-7 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center"><i class="fa-solid fa-envelope text-xs"></i></div>
                     <span class="truncate font-semibold">Correo Ventas</span>
                 </a>
-                <div class="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-2.5 rounded-xl bg-stone-900/50 border border-stone-800 text-stone-300">
-                    <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center"><i class="fa-solid fa-truck-fast text-xs"></i></div>
-                    <span class="truncate font-semibold">Envíos Mayoreo</span>
-                </div>
             </div>
 
         </div>
@@ -167,37 +163,6 @@
 
     <!-- Contenido Principal / Catálogo -->
     <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 space-y-6">
-
-        <!-- Buscador y Categorías Modernas -->
-        <div class="space-y-4">
-            <div class="relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-500 text-sm"></i>
-                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar cortes (Ej: Res, Pavo, Cerdo)..." 
-                    class="w-full pl-11 pr-10 py-3.5 bg-stone-900/80 border border-stone-800 rounded-2xl text-stone-100 placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:border-amber-500 transition shadow-inner">
-                <button id="clearSearch" onclick="clearSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-200">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Pestañas de Filtrado por Categoría -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="categoryTabs">
-                <button onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-neutral-950 transition">
-                    Todos los Productos
-                </button>
-                <button onclick="filterCategory('res')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🐄 Res
-                </button>
-                <button onclick="filterCategory('cerdo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🐖 Cerdo
-                </button>
-                <button onclick="filterCategory('pollo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🐔 Pollo
-                </button>
-                <button onclick="filterCategory('pavo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🦃 Pavo
-                </button>
-            </div>
-        </div>
 
         <!-- Grid de Catálogo -->
         <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -232,13 +197,6 @@
                         <i class="fa-solid fa-boxes-stacked"></i> Seleccionar Variantes para Cotizar
                     </h4>
                     <div id="modalSubproductsList" class="grid grid-cols-1 gap-2"></div>
-                </div>
-
-                <div class="space-y-2">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-red-400 flex items-center gap-2">
-                        <i class="fa-solid fa-fire"></i> Métodos de Cocción
-                    </h4>
-                    <ul id="modalIndicationsList" class="flex flex-wrap gap-1.5"></ul>
                 </div>
             </div>
 
@@ -304,8 +262,7 @@
                     { name: 'Pulpa Blanca', desc: 'Excelente rendimiento para guisados y molienda.' },
                     { name: 'Pulpa Negra', desc: 'Pieza magra tradicional para milanesas y asados.' },
                     { name: 'Filete', desc: 'Corte magro, suave y de máxima calidad gastronómica.' }
-                ],
-                indications: ['Molienda', 'Guisados', 'Parrilla', 'Corte Fino']
+                ]
             },
             {
                 id: 'cerdo-mayoreo',
@@ -333,8 +290,7 @@
                     { name: 'Unto', desc: 'Grasa suave industrial.' },
                     { name: 'Cuero Belly', desc: 'Piel de la zona de la barriga.' },
                     { name: 'Cuero de Pierna', desc: 'Piel magra de la zona de la pierna.' }
-                ],
-                indications: ['Procesamiento Embutidor', 'Cocción Lenta', 'Molienda Industrial', 'Chicharrón']
+                ]
             },
             {
                 id: 'pollo-mayoreo',
@@ -351,8 +307,7 @@
                     { name: 'Recorte de Pechuga 10%', desc: 'Recorte para molienda y empanados.' },
                     { name: 'Recorte de Pechuga 15%', desc: 'Ideal para nuggets y embutidos de ave.' },
                     { name: 'Alitas', desc: 'Origen americana, chilena o brasileña.' }
-                ],
-                indications: ['Fritura Profunda', 'Procesados', 'Parrilla', 'Cocción Industrial']
+                ]
             },
             {
                 id: 'pavo-mayoreo',
@@ -368,46 +323,17 @@
                     { name: 'Muslo', desc: 'Pieza jugosa para deshuese o embutidos.' },
                     { name: 'Pierna con Hueso y con Piel', desc: 'Pierna entera tradicional.' },
                     { name: 'Recorte de Muslo de Pavo', desc: 'Materia prima magra para formulación.' }
-                ],
-                indications: ['Horno', 'Ahumado', 'Procesado Deli', 'Cocción Lenta']
+                ]
             }
         ];
 
-        let selectedCategory = 'all';
         let quoteCart = {}; // { "KeyVariante": { parentTitle, subName, qty, unit } }
 
         function renderCatalog() {
             const grid = document.getElementById('catalogGrid');
-            const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
-            const clearBtn = document.getElementById('clearSearch');
-
-            if (searchVal) clearBtn.classList.remove('hidden');
-            else clearBtn.classList.add('hidden');
-
-            const filtered = catalogData.filter(item => {
-                const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
-                const matchesSearch = !searchVal || 
-                    item.title.toLowerCase().includes(searchVal) ||
-                    item.subtitle.toLowerCase().includes(searchVal) ||
-                    item.description.toLowerCase().includes(searchVal) ||
-                    item.subproducts.some(sub => sub.name.toLowerCase().includes(searchVal));
-                return matchesCategory && matchesSearch;
-            });
-
             grid.innerHTML = '';
 
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-12 text-center text-stone-500 space-y-2">
-                        <i class="fa-solid fa-magnifying-glass text-3xl text-stone-600"></i>
-                        <p class="font-bold text-stone-300">Sin productos encontrados</p>
-                        <p class="text-xs">Intenta con otra búsqueda o categoría.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            filtered.forEach(item => {
+            catalogData.forEach(item => {
                 const card = document.createElement('div');
                 card.className = "bg-stone-900/90 border border-stone-800 rounded-2xl overflow-hidden p-4 card-hover-effect cursor-pointer flex flex-col justify-between group";
                 card.onclick = () => openProductModal(item.id);
@@ -433,24 +359,6 @@
                 `;
                 grid.appendChild(card);
             });
-        }
-
-        function filterCategory(cat) {
-            selectedCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition";
-            });
-            event.currentTarget.className = "cat-btn active px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-neutral-950 transition";
-            renderCatalog();
-        }
-
-        function filterProducts() {
-            renderCatalog();
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            renderCatalog();
         }
 
         function openProductModal(id) {
@@ -494,16 +402,6 @@
                             </button>
                         </div>
                     </div>
-                `;
-            });
-
-            const indList = document.getElementById('modalIndicationsList');
-            indList.innerHTML = '';
-            item.indications.forEach(ind => {
-                indList.innerHTML += `
-                    <li class="px-2.5 py-1 bg-red-950/60 border border-red-800/60 text-red-400 rounded-lg text-[11px] font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-check text-[9px]"></i> ${ind}
-                    </li>
                 `;
             });
 
