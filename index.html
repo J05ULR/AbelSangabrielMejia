@@ -91,7 +91,7 @@
         }
 
         .zero-systems-svg {
-            width: 180px;
+            width: 200px;
             height: auto;
             max-width: 100%;
             display: block;
@@ -131,7 +131,7 @@
                 Gerente Comercial
             </p>
             <p class="text-xs sm:text-sm text-stone-400 max-w-xl mt-2 leading-relaxed">
-                Especialista en distribución.
+                Especialista en distribución de cortes finos de res, cerdo y aves para restaurantes, hoteles y cadenas gastronómicas a nivel nacional.
             </p>
 
             <!-- Acciones Rápidas -->
@@ -142,7 +142,7 @@
                 </a>
                 <button onclick="downloadVCard()" 
                         class="py-3 px-5 rounded-2xl bg-stone-900 hover:bg-stone-800 border border-stone-700 text-stone-200 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition active:scale-95">
-                    <i class="fa-solid fa-address-card text-amber-400"></i> Guardar Contacto
+                    <i class="fa-solid fa-address-card text-amber-400"></i> Guardar VCard
                 </button>
             </div>
 
@@ -172,7 +172,7 @@
         <div class="space-y-4">
             <div class="relative">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-500 text-sm"></i>
-                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar cortes (Ej: Ribeye, Wagyu, T-Bone)..." 
+                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar cortes (Ej: Ribeye, Wagyu, Picanha)..." 
                     class="w-full pl-11 pr-10 py-3.5 bg-stone-900/80 border border-stone-800 rounded-2xl text-stone-100 placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:border-amber-500 transition shadow-inner">
                 <button id="clearSearch" onclick="clearSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-200">
                     <i class="fa-solid fa-xmark"></i>
@@ -253,7 +253,7 @@
         <div class="footer-credits">
             <span>created by</span>
             <a href="https://j05ulr.github.io/ZeroSystems/" target="_blank" rel="noopener noreferrer" class="zero-systems-logo">
-                <svg class="zero-systems-svg" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+                <svg class="zero-systems-svg" viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg">
                     <!-- Iso/Icono Zero Systems -->
                     <g fill="#FFFFFF">
                         <path d="M20,65 L110,65 C125,65 130,58 135,48 L142,32 C145,25 140,20 128,20 L40,20 C25,20 20,27 15,37 L8,52 C5,59 10,65 20,65 Z" />
@@ -273,7 +273,7 @@
             {
                 id: 'ribeye',
                 category: 'res',
-                title: 'Ribeye',
+                title: 'Ribeye Prime Titan',
                 code: 'CHOICE / PRIME',
                 subtitle: 'Corte del Lomo Ancho',
                 icon: 'fa-drumstick-bite',
@@ -498,7 +498,7 @@ FN:Abel Sangabriel Mejía
 TITLE:Gerente de Ventas
 ORG:TITAN MEATS
 TEL;TYPE=CELL:+525515901980
-EMAIL:abel@titanmeats.com
+EMAIL:ventas@titanmeats.com
 END:VCARD`;
 
             const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
