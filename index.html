@@ -98,7 +98,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col bg-neutral-950 text-neutral-100 font-sans">
+<body class="min-h-screen flex flex-col bg-neutral-950 text-neutral-100 font-sans relative pb-24">
 
     <!-- Hero Header Integrado con Perfil -->
     <header class="relative overflow-hidden bg-gradient-to-b from-stone-900 via-neutral-950 to-neutral-950 pt-8 pb-6 px-4 border-b border-stone-800/80">
@@ -118,7 +118,7 @@
             <div class="relative group mb-5">
                 <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-500 via-red-600 to-amber-500 opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
                 <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-neutral-950 shadow-2xl">
-                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/maestro-3d-icon-png-download-10199756.png" alt="Abel Sangabriel Mejía" class="w-full h-full object-cover">
+                    <img src="https://scontent.fmex3-1.fna.fbcdn.net/v/t39.30808-6/796691328_2631685473967991_8059293044907589156_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s704x704&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEOOUFgGcH1s2caFQXpLQli8YGguJBCCCjxgaC4kEIIKNnC2puiM6c8gFr5yIt65DW_VQGChE5V9RcqPp8C3vRh&_nc_ohc=xWOjuJXrUEIQ7kNvwE3nV3A&_nc_oc=AdrYBzyjwnu03igVOv_8nXGfkpr7AoJiqqzkkGUMNlOq3aXX0gRT0_yKgoLfgltckchyh3D3T7nC1nYtZGHWUsf7&_nc_zt=23&_nc_ht=scontent.fmex3-1.fna&_nc_gid=HyBVipNbTrUEDP8iHBlsAg&_nc_ss=7b2a8&oh=00_AQISHSL9J9hYkXTvjCDTaolh19FOzasHsENR9p1ckSsaXw&oe=6AB4E527" alt="Abel Sangabriel Mejía" class="w-full h-full object-cover">
                 </div>
                 <span class="absolute bottom-1 right-2 bg-emerald-500 border-4 border-neutral-950 w-6 h-6 rounded-full" title="Disponible para Ventas"></span>
             </div>
@@ -131,7 +131,7 @@
                 Gerente Comercial
             </p>
             <p class="text-xs sm:text-sm text-stone-400 max-w-xl mt-2 leading-relaxed">
-                Especialista en ventas.
+                Especialista en distribución de cortes finos de res, cerdo y aves para restaurantes, hoteles y cadenas gastronómicas a nivel nacional.
             </p>
 
             <!-- Acciones Rápidas -->
@@ -188,10 +188,13 @@
                     🥩 Res Premium
                 </button>
                 <button onclick="filterCategory('cerdo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🥓 Cerdo & Aves
+                    🥓 Cerdo
                 </button>
-                <button onclick="filterCategory('procesados')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
-                    🍔 Embutidos & Burger
+                <button onclick="filterCategory('pollo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
+                    🍗 Pollo
+                </button>
+                <button onclick="filterCategory('pavo')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-stone-900 text-stone-400 hover:text-white border border-stone-800 transition">
+                    🦃 Pavo
                 </button>
             </div>
         </div>
@@ -226,7 +229,7 @@
 
                 <div class="space-y-2">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-boxes-stacked"></i> Presentaciones
+                        <i class="fa-solid fa-boxes-stacked"></i> Seleccionar Variantes para Cotizar
                     </h4>
                     <div id="modalSubproductsList" class="grid grid-cols-1 gap-2"></div>
                 </div>
@@ -241,11 +244,28 @@
 
             <div class="p-4 bg-stone-950 border-t border-stone-800 flex items-center justify-between">
                 <span class="text-[11px] text-stone-500">TITAN MEATS ®</span>
-                <a id="modalQuoteBtn" href="#" target="_blank" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs rounded-xl transition flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp"></i> Cotizar este corte
-                </a>
+                <button onclick="closeProductModal()" class="px-5 py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs rounded-xl transition">
+                    Listo / Cerrar
+                </button>
             </div>
         </div>
+    </div>
+
+    <!-- Barra Flotante de Cotización Unificada -->
+    <div id="cartBar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-lg bg-gradient-to-r from-stone-900 via-neutral-900 to-stone-900 border border-amber-500/50 rounded-2xl shadow-2xl p-3.5 flex items-center justify-between backdrop-blur-lg hidden transition duration-300 gold-glow">
+        <div class="flex items-center gap-3">
+            <div class="relative w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold border border-amber-500/30">
+                <i class="fa-solid fa-cart-flatbed text-lg"></i>
+                <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-stone-900">0</span>
+            </div>
+            <div>
+                <p id="cartSummaryText" class="text-xs font-bold text-white">0 variantes seleccionadas</p>
+                <p class="text-[10px] text-amber-400">Cotización unificada de pedidos</p>
+            </div>
+        </div>
+        <button onclick="sendConsolidatedQuote()" class="py-2.5 px-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center gap-2 shadow-lg transition active:scale-95">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Cotizar Todo
+        </button>
     </div>
 
     <!-- FOOTER -->
@@ -271,94 +291,90 @@
     <script>
         const catalogData = [
             {
-                id: 'ribeye',
+                id: 'res-mayoreo',
                 category: 'res',
-                title: 'Ribeye Prime Titan',
-                code: 'CHOICE / PRIME',
-                subtitle: 'Corte del Lomo Ancho',
+                title: 'Res Seleccionada',
+                code: 'MAYOREO CARGA',
+                subtitle: 'Cortes Magros y Pulpas de Res',
                 icon: 'fa-drumstick-bite',
-                img: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=600',
-                description: 'Excelente marmoleo y jugosidad sobresaliente. Uno de los cortes más demandados en la alta gastronomía parrillera.',
+                img: 'https://farmcreditcfl.com/sites/default/files/styles/blog/public/managed/blog/images/frans-ruiter-62xqQdCBULk-unsplash.jpg?h=57bcf2b1&itok=RA3eJ07m',
+                description: 'Variantes de pulpa y cortes magros de res ideales para procesamiento industrial, distribución comercial y consumo en volumen.',
                 subproducts: [
-                    { name: 'Cowboy Steak', desc: 'Con hueso corto, grosor 1.5 a 2 pulgadas.' },
-                    { name: 'Ribeye Boneless', desc: 'Deshuesado y limpio listo para porcionar.' }
+                    { name: 'Pulpa Bola', desc: 'Corte magro y uniforme de alta calidad.' },
+                    { name: 'Pulpa Blanca', desc: 'Excelente rendimiento para guisados y molienda.' },
+                    { name: 'Pulpa Negra', desc: 'Pieza magra tradicional para milanesas y asados.' },
+                    { name: 'Filete', desc: 'Corte magro, suave y de máxima calidad gastronómica.' }
                 ],
-                indications: ['Parrilla a carbón', 'Término Medio', 'Sellar a fuego vivo']
+                indications: ['Molienda', 'Guisados', 'Parrilla', 'Corte Fino']
             },
             {
-                id: 'tomahawk',
-                category: 'res',
-                title: 'Tomahawk Steak',
-                code: 'EXPORTATION',
-                subtitle: 'Ribeye con Hueso Largo',
-                icon: 'fa-bone',
-                img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600',
-                description: 'Impresionante presentación visual para restaurante. Hueso entero expuesto estilo francés para un sabor intenso.',
-                subproducts: [
-                    { name: 'Pieza Individual', desc: 'Peso aproximado entre 1.1 kg a 1.4 kg.' }
-                ],
-                indications: ['Parrilla indirecta', 'Ahumado', 'Horno']
-            },
-            {
-                id: 'picanha',
-                category: 'res',
-                title: 'Picanha Angus',
-                code: 'ANGUS CERTIFIED',
-                subtitle: 'Tapa de Aguayón',
-                icon: 'fa-utensils',
-                img: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&q=80&w=600',
-                description: 'Corte estrella con una capa de grasa perfecta que aporta un sabor único al derretirse en la cocción.',
-                subproducts: [
-                    { name: 'Picanha Entera', desc: 'Piezas calibradas de 1.2 kg a 1.5 kg.' },
-                    { name: 'Medallones', desc: 'Corte transversal para espadas.' }
-                ],
-                indications: ['Espadas / Spiedo', 'Ahumado', 'Parrilla']
-            },
-            {
-                id: 'babyback',
+                id: 'cerdo-mayoreo',
                 category: 'cerdo',
-                title: 'Baby Back Ribs',
-                code: 'CERDO SELECTO',
-                subtitle: 'Costilla de Lomo de Cerdo',
-                icon: 'fa-burger',
-                img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600',
-                description: 'Costillas tiernas y carnosas. Absorción óptima de sazonadores secos (rubs) y salsas barbacoa.',
-                subproducts: [
-                    { name: 'Rack Entero', desc: 'Calibrado de 1.8 a 2.2 lbs.' }
-                ],
-                indications: ['Ahumado BBQ', 'Cocción Lenta', 'Horno']
-            },
-            {
-                id: 'wings',
-                category: 'cerdo',
-                title: 'Alitas IQF Jumbo',
-                code: 'CONGELADO INDIVIDUAL',
-                subtitle: 'Aves para Hostelería',
+                title: 'Cerdo Industrial y Cortes',
+                code: 'CARGA PESADA',
+                subtitle: 'Pierna, Recortes, Grasa y Vísceras',
                 icon: 'fa-drumstick-bite',
-                img: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&q=80&w=600',
-                description: 'Alitas seleccionadas porcionadas en Flat y Drumette, listas para freír o freidora de aire sin desperdicio.',
+                img: 'https://6430607.fs1.hubspotusercontent-na1.net/hubfs/6430607/C%C3%B3mo%20comenzar%20mi%20granja%20porc%C3%ADcola%20-%20Cerdos.jpg',
+                description: 'Suministro integral de cerdo fresco y sus variantes para procesamiento embutidor, carnicerías y distribución masiva.',
                 subproducts: [
-                    { name: 'Caja Mayoreo 10kg', desc: 'Empaque IQF de fácil manejo.' }
+                    { name: 'Pierna de Cerdo Fresca en Combo', desc: 'Presentación industrial en combo fresca.' },
+                    { name: 'Pierna de Cerdo sin Hueso y sin Piel', desc: 'Pierna pulpa limpia lista para procesar.' },
+                    { name: 'Papada', desc: 'Ideal para chicharrones y embutidos.' },
+                    { name: 'Trompa', desc: 'Corte de cabeza industrial.' },
+                    { name: 'Recorte 75%', desc: 'Recorte magro industrial de alta calidad.' },
+                    { name: 'Recorte 60%', desc: 'Balance ideal para procesamiento embutidor.' },
+                    { name: 'Recorte 42%', desc: 'Alto contenido graso para fórmulas específicas.' },
+                    { name: 'Codillo', desc: 'Pieza con hueso para cocción lenta.' },
+                    { name: 'Manitas', desc: 'Limpias para empaque o procesamiento.' },
+                    { name: 'Nana', desc: 'Víscera de cerdo limpia.' },
+                    { name: 'Buche', desc: 'Víscera de cerdo seleccionada.' },
+                    { name: 'Grasa de Pierna', desc: 'Grasa seleccionada de pierna.' },
+                    { name: 'Grasa Corporal', desc: 'Materia prima para embutidos y manteca.' },
+                    { name: 'Unto', desc: 'Grasa suave industrial.' },
+                    { name: 'Cuero Belly', desc: 'Piel de la zona de la barriga.' },
+                    { name: 'Cuero de Pierna', desc: 'Piel magra de la zona de la pierna.' }
                 ],
-                indications: ['Fritura Profunda', 'Parrilla', 'Salsas']
+                indications: ['Procesamiento Embutidor', 'Cocción Lenta', 'Molienda Industrial', 'Chicharrón']
             },
             {
-                id: 'chorizo',
-                category: 'procesados',
-                title: 'Chorizo Argentino',
-                code: 'RECETA ARTESANAL',
-                subtitle: 'Embutido de Cerdo & Especias',
-                icon: 'fa-hotdog',
-                img: 'https://images.unsplash.com/photo-1585325701165-351af916e581?auto=format&fit=crop&q=80&w=600',
-                description: 'Elaborado con 100% carne de cerdo picada, vino blanco y especias finas. Ideal para entradas o choripán.',
+                id: 'pollo-mayoreo',
+                category: 'pollo',
+                title: 'Pollo y Piezas',
+                code: 'CONGELADO IQF',
+                subtitle: 'Pechuga, Recortes y Alitas Importadas',
+                icon: 'fa-drumstick-bite',
+                img: 'https://cdn.bmeditores.mx/2021/02/ganancias-granja-productora-carne-pollo.jpg',
+                description: 'Aves con origen importado congelado (Americana, Chilena, Brasileña) calibradas para uso comercial y foodservice.',
                 subproducts: [
-                    { name: 'Paquete 1kg', desc: 'Atado artesanal listo para asador.' }
+                    { name: 'Media Pechuga de Pollo Congelada', desc: 'Origen americana, chilena o brasileña.' },
+                    { name: 'Recorte de Pechuga 5%', desc: 'Recorte ultra magro con 5% de grasa/piel.' },
+                    { name: 'Recorte de Pechuga 10%', desc: 'Recorte para molienda y empanados.' },
+                    { name: 'Recorte de Pechuga 15%', desc: 'Ideal para nuggets y embutidos de ave.' },
+                    { name: 'Alitas', desc: 'Origen americana, chilena o brasileña.' }
                 ],
-                indications: ['Asador a fuego medio', 'Choripán']
+                indications: ['Fritura Profunda', 'Procesados', 'Parrilla', 'Cocción Industrial']
+            },
+            {
+                id: 'pavo-mayoreo',
+                category: 'pavo',
+                title: 'Pavo de Importación',
+                code: 'SELECCIÓN MAYOREO',
+                subtitle: 'Pechuga, Muslo y Pierna',
+                icon: 'fa-drumstick-bite',
+                img: 'https://www.zotal.com/wp-content/uploads/2013/12/bioseguridadengranjasdepavoszotal.jpg',
+                description: 'Cortes seleccionados de pavo de calidad importada (Americana, Chilena) ideales para deli, jamones y restotería.',
+                subproducts: [
+                    { name: 'Pechuga sin Hueso y sin Piel', desc: 'Origen americana o chilena, corte magro superior.' },
+                    { name: 'Muslo', desc: 'Pieza jugosa para deshuese o embutidos.' },
+                    { name: 'Pierna con Hueso y con Piel', desc: 'Pierna entera tradicional.' },
+                    { name: 'Recorte de Muslo de Pavo', desc: 'Materia prima magra para formulación.' }
+                ],
+                indications: ['Horno', 'Ahumado', 'Procesado Deli', 'Cocción Lenta']
             }
         ];
 
         let selectedCategory = 'all';
+        let quoteCart = {}; // { "KeyVariante": { parentTitle, subName, qty, unit } }
 
         function renderCatalog() {
             const grid = document.getElementById('catalogGrid');
@@ -373,7 +389,8 @@
                 const matchesSearch = !searchVal || 
                     item.title.toLowerCase().includes(searchVal) ||
                     item.subtitle.toLowerCase().includes(searchVal) ||
-                    item.description.toLowerCase().includes(searchVal);
+                    item.description.toLowerCase().includes(searchVal) ||
+                    item.subproducts.some(sub => sub.name.toLowerCase().includes(searchVal));
                 return matchesCategory && matchesSearch;
             });
 
@@ -410,7 +427,7 @@
                     <div class="mt-4 pt-3 border-t border-stone-800/80 flex items-center justify-between text-xs">
                         <span class="text-[11px] font-bold text-stone-500">${item.subproducts.length} Variantes</span>
                         <span class="text-xs font-bold text-amber-400 flex items-center gap-1">
-                            Ver más <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
+                            Ver variantes <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
                         </span>
                     </div>
                 `;
@@ -448,11 +465,34 @@
 
             const subList = document.getElementById('modalSubproductsList');
             subList.innerHTML = '';
-            item.subproducts.forEach(sub => {
+            
+            item.subproducts.forEach((sub, idx) => {
+                const itemKey = `${item.id}__${idx}`;
+                const inCart = quoteCart[itemKey];
+
                 subList.innerHTML += `
-                    <div class="bg-stone-950 p-2.5 rounded-xl border border-stone-800">
-                        <p class="font-bold text-xs text-amber-400">${sub.name}</p>
-                        <p class="text-[11px] text-stone-400 mt-0.5">${sub.desc}</p>
+                    <div class="bg-stone-950 p-3 rounded-xl border border-stone-800 flex flex-col gap-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-bold text-xs text-amber-400">${sub.name}</p>
+                                <p class="text-[11px] text-stone-400 mt-0.5">${sub.desc}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 pt-1 border-t border-stone-900">
+                            <input type="number" id="qty_${itemKey}" min="1" placeholder="Cant." value="${inCart ? inCart.qty : ''}"
+                                class="w-20 px-2 py-1 bg-stone-900 border border-stone-700 rounded-lg text-white text-xs focus:outline-none focus:border-amber-500">
+                            <select id="unit_${itemKey}" class="bg-stone-900 border border-stone-700 rounded-lg text-stone-200 text-xs py-1 px-1.5 focus:outline-none">
+                                <option value="kilos" ${inCart && inCart.unit === 'kilos' ? 'selected' : ''}>Kilos</option>
+                                <option value="toneladas" ${inCart && inCart.unit === 'toneladas' ? 'selected' : ''}>Toneladas</option>
+                                <option value="carga" ${inCart && inCart.unit === 'carga' ? 'selected' : ''}>Carga</option>
+                            </select>
+                            <button onclick="toggleVariantCart('${itemKey}', '${item.title.replace(/'/g, "\\'")}', '${sub.name.replace(/'/g, "\\'")}')" 
+                                id="btn_${itemKey}"
+                                class="flex-1 py-1 px-3 rounded-lg font-bold text-xs transition flex items-center justify-center gap-1 ${inCart ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-amber-500 hover:bg-amber-400 text-neutral-950'}">
+                                <i class="fa-solid ${inCart ? 'fa-trash' : 'fa-plus'} text-[10px]"></i>
+                                <span id="lbl_${itemKey}">${inCart ? 'Quitar' : 'Añadir a Cotización'}</span>
+                            </button>
+                        </div>
                     </div>
                 `;
             });
@@ -467,8 +507,6 @@
                 `;
             });
 
-            document.getElementById('modalQuoteBtn').href = `https://wa.me/525515901980?text=Hola%20Abel,%20deseo%20cotizar:%20${encodeURIComponent(item.title)}`;
-
             const modal = document.getElementById('productModal');
             const content = document.getElementById('modalContent');
             modal.classList.remove('hidden');
@@ -477,6 +515,74 @@
                 content.classList.remove('scale-95');
                 content.classList.add('scale-100');
             }, 10);
+        }
+
+        function toggleVariantCart(key, parentTitle, subName) {
+            if (quoteCart[key]) {
+                delete quoteCart[key];
+            } else {
+                const qtyInput = document.getElementById(`qty_${key}`);
+                const unitSelect = document.getElementById(`unit_${key}`);
+                const qty = qtyInput.value ? qtyInput.value : 'A convenir';
+                const unit = unitSelect.value;
+
+                quoteCart[key] = {
+                    parentTitle,
+                    subName,
+                    qty,
+                    unit
+                };
+            }
+            updateCartUI();
+            
+            // Re-renderizar boton de la modal actual
+            const inCart = quoteCart[key];
+            const btn = document.getElementById(`btn_${key}`);
+            const lbl = document.getElementById(`lbl_${key}`);
+            if (btn && lbl) {
+                if (inCart) {
+                    btn.className = "flex-1 py-1 px-3 rounded-lg font-bold text-xs transition flex items-center justify-center gap-1 bg-red-600 hover:bg-red-700 text-white";
+                    btn.querySelector('i').className = "fa-solid fa-trash text-[10px]";
+                    lbl.innerText = "Quitar";
+                } else {
+                    btn.className = "flex-1 py-1 px-3 rounded-lg font-bold text-xs transition flex items-center justify-center gap-1 bg-amber-500 hover:bg-amber-400 text-neutral-950";
+                    btn.querySelector('i').className = "fa-solid fa-plus text-[10px]";
+                    lbl.innerText = "Añadir a Cotización";
+                }
+            }
+        }
+
+        function updateCartUI() {
+            const keys = Object.keys(quoteCart);
+            const count = keys.length;
+            const cartBar = document.getElementById('cartBar');
+            const cartCount = document.getElementById('cartCount');
+            const cartSummaryText = document.getElementById('cartSummaryText');
+
+            if (count > 0) {
+                cartBar.classList.remove('hidden');
+                cartCount.innerText = count;
+                cartSummaryText.innerText = `${count} variante${count > 1 ? 's' : ''} seleccionada${count > 1 ? 's' : ''}`;
+            } else {
+                cartBar.classList.add('hidden');
+            }
+        }
+
+        function sendConsolidatedQuote() {
+            const keys = Object.keys(quoteCart);
+            if (keys.length === 0) return;
+
+            let msg = "Hola Abel, me interesa solicitar una cotización con las siguientes variantes:\n\n";
+            
+            keys.forEach((key, idx) => {
+                const item = quoteCart[key];
+                msg += `${idx + 1}. *${item.parentTitle}* - ${item.subName}\n   Cantidad: ${item.qty} ${item.qty !== 'A convenir' ? item.unit : ''}\n`;
+            });
+
+            msg += "\nQuedo a la espera de disponibilidad y precios de mayoreo. ¡Gracias!";
+
+            const whatsappUrl = `https://wa.me/525515901980?text=${encodeURIComponent(msg)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         function closeProductModal() {
