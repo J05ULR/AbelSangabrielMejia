@@ -114,13 +114,12 @@
                 <span class="text-xs font-bold tracking-widest uppercase text-amber-400 font-display">TITAN MEATS ®</span>
             </div>
 
-            <!-- FOTO DE PERFIL TOTALMENTE CIRCULAR -->
+            <!-- FOTO DE PERFIL TOTALMENTE CIRCULAR (SIN PUNTO VERDE) -->
             <div class="relative group mb-5">
                 <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-500 via-red-600 to-amber-500 opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
                 <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-neutral-950 shadow-2xl">
                     <img src="https://scontent.fmex3-1.fna.fbcdn.net/v/t39.30808-6/796691328_2631685473967991_8059293044907589156_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s704x704&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEOOUFgGcH1s2caFQXpLQli8YGguJBCCCjxgaC4kEIIKNnC2puiM6c8gFr5yIt65DW_VQGChE5V9RcqPp8C3vRh&_nc_ohc=xWOjuJXrUEIQ7kNvwE3nV3A&_nc_oc=AdrYBzyjwnu03igVOv_8nXGfkpr7AoJiqqzkkGUMNlOq3aXX0gRT0_yKgoLfgltckchyh3D3T7nC1nYtZGHWUsf7&_nc_zt=23&_nc_ht=scontent.fmex3-1.fna&_nc_gid=HyBVipNbTrUEDP8iHBlsAg&_nc_ss=7b2a8&oh=00_AQISHSL9J9hYkXTvjCDTaolh19FOzasHsENR9p1ckSsaXw&oe=6AB4E527" alt="Abel Sangabriel Mejía" class="w-full h-full object-cover">
                 </div>
-                <span class="absolute bottom-1 right-2 bg-emerald-500 border-4 border-neutral-950 w-6 h-6 rounded-full" title="Disponible para Ventas"></span>
             </div>
 
             <!-- Información Personal -->
@@ -327,7 +326,7 @@
             }
         ];
 
-        let quoteCart = {}; // { "KeyVariante": { parentTitle, subName, qty, unit } }
+        let quoteCart = {};
 
         function renderCatalog() {
             const grid = document.getElementById('catalogGrid');
@@ -433,7 +432,6 @@
             }
             updateCartUI();
             
-            // Re-renderizar boton de la modal actual
             const inCart = quoteCart[key];
             const btn = document.getElementById(`btn_${key}`);
             const lbl = document.getElementById(`lbl_${key}`);
