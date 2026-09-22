@@ -56,6 +56,47 @@
             border-color: rgba(245, 158, 11, 0.5);
         }
 
+        /* Estilos y Animación para el Logo Ticker Infinito */
+        @keyframes logoTicker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .ticker-container {
+            display: flex;
+            width: max-content;
+            animation: logoTicker 25s linear infinite;
+        }
+
+        .ticker-container:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1.75rem;
+        }
+
+        .ticker-img {
+            max-height: 2.75rem;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0.9) opacity(0.85);
+            transition: all 0.3s ease;
+        }
+
+        .ticker-img:hover {
+            filter: brightness(1.1) opacity(1);
+            transform: scale(1.08);
+        }
+
         /* Estilos específicos para el Footer de Zero Systems */
         footer {
             margin-top: auto;
@@ -114,7 +155,7 @@
                 <span class="text-xs font-bold tracking-widest uppercase text-amber-400 font-display">TITAN MEATS ®</span>
             </div>
 
-            <!-- FOTO DE PERFIL TOTALMENTE CIRCULAR (SIN PUNTO VERDE) -->
+            <!-- FOTO DE PERFIL TOTALMENTE CIRCULAR -->
             <div class="relative group mb-5">
                 <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-500 via-red-600 to-amber-500 opacity-75 blur transition duration-500 group-hover:opacity-100"></div>
                 <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-neutral-950 shadow-2xl">
@@ -159,6 +200,39 @@
 
         </div>
     </header>
+
+    <!-- LOGO TICKER / CARRUSEL INFINITO -->
+    <section class="w-full bg-stone-900/90 border-y border-stone-800/90 py-4 overflow-hidden relative shadow-inner">
+        <!-- Difuminado en bordes para efecto suave -->
+        <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-neutral-950 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-neutral-950 to-transparent z-10 pointer-events-none"></div>
+
+        <div class="ticker-container">
+            <!-- Set 1 de Logos -->
+            <div class="ticker-item"><img src="https://www.pilgrims.com/wp-content/uploads/2018/11/pilgrims_logo-1.png" alt="Pilgrim's" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.tyson.com.mx/sites/default/files/HeadTyson-logo.png" alt="Tyson" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://cdn.freebiesupply.com/logos/large/2x/ibp-logo-png-transparent.png" alt="IBP" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://waynesandersonfarms.com/wp-content/uploads/2025/10/hgg_web_tile.png" alt="Wayne Sanderson Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sanderson_Farms_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Sanderson Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://images.seeklogo.com/logo-png/19/2/peco-foods-logo-png_seeklogo-196422.png" alt="Peco Foods" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.wikicorporates.org/mediawiki/images/thumb/0/0b/National-Beef-Packing-Company.svg/500px-National-Beef-Packing-Company.svg.png" alt="National Beef" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://indianapackerscorp.com/wp-content/plugins/custom-css/img/brands/indianakitchen.png" alt="Indiana Kitchen" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Current_Foster_Farms_logo.svg/1280px-Current_Foster_Farms_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Foster Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.seaboardcorp.com/wp-content/uploads/2020/08/SeaboardFoods-Logo-Clear_2-copy-300x128.png" alt="Seaboard Foods" class="ticker-img"></div>
+
+            <!-- Set 2 Duplicado para Bucle Infinito Continuo -->
+            <div class="ticker-item"><img src="https://www.pilgrims.com/wp-content/uploads/2018/11/pilgrims_logo-1.png" alt="Pilgrim's" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.tyson.com.mx/sites/default/files/HeadTyson-logo.png" alt="Tyson" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://cdn.freebiesupply.com/logos/large/2x/ibp-logo-png-transparent.png" alt="IBP" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://waynesandersonfarms.com/wp-content/uploads/2025/10/hgg_web_tile.png" alt="Wayne Sanderson Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sanderson_Farms_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Sanderson Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://images.seeklogo.com/logo-png/19/2/peco-foods-logo-png_seeklogo-196422.png" alt="Peco Foods" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.wikicorporates.org/mediawiki/images/thumb/0/0b/National-Beef-Packing-Company.svg/500px-National-Beef-Packing-Company.svg.png" alt="National Beef" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://indianapackerscorp.com/wp-content/plugins/custom-css/img/brands/indianakitchen.png" alt="Indiana Kitchen" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Current_Foster_Farms_logo.svg/1280px-Current_Foster_Farms_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="Foster Farms" class="ticker-img"></div>
+            <div class="ticker-item"><img src="https://www.seaboardcorp.com/wp-content/uploads/2020/08/SeaboardFoods-Logo-Clear_2-copy-300x128.png" alt="Seaboard Foods" class="ticker-img"></div>
+        </div>
+    </section>
 
     <!-- Contenido Principal / Catálogo -->
     <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 space-y-6">
